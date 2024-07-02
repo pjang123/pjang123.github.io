@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <!-- Page setup -->
+    <meta charset="utf-8">
+    <title>Paul Jang</title>
+  
+    <!-- Stylesheets -->
+    <!-- Reset default styles and add support for google fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+   
+    <!-- Custom styles -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>    
+
+    <!-- Want to add Bootstrap? -->
+    <!-- Visit: https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+    
+  </head>
+  
+  <body>
+
+    <header id="header">
+      <img src="pfp.jpg" class="pfp">
+      <style>
+        .pfp {
+            display: block;
+            margin: left;
+            max-width: 100px;
+            height: auto;       
+            border-radius: 50px;  
+        }
+      </style>
+
+      <h1>Paul Jang</h1>
+      
+      <!-- Menu link fragment #id should match a div id. Example: <a href="#home"> links to <div id="home"></div>  -->
+      <ul class="main-menu">
+        <li><a href="#home">home</a></li>
+        <li><a href="#resume">resume</a></li>
+        <li><a href="#contact">contact</a></li>
+      </ul>                 
+    </header>
+   
+    <div id="container">
+      <div class="inner">
+        <div id="content"> 
+          
+          <div id="home" class="content-region hide">
+            <h2>About Me</h2>
+            <p>
+                Hello! My name is Paul Jang. I am a student at the University of Maryland, Baltimore County, where I am pursuing a bachelor's degree in computer science with a focus in IT and Cyber Security.
+            </p>
+          </div>
+          
+          <div id="resume" class="content-region hide">
+            <h2>Resume</h2>
+            <img src="Paul Jang Resume-1.png" class="resume-img">
+            <style>
+                .resume-img {
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                    max-width: 75%;
+                    height: auto;
+                }
+            </style>
+          </div>
+          
+          <div id="contact" class="content-region hide">
+            <h2>Contact</h2>
+            <a href="https://www.linkedin.com/in/pauljang3/" target="_blank">
+                <img src="linkedin.png" class="linkedin-icon">
+            </a>
+
+            <a href="https://github.com/pjang123" target="_blank">
+                <img src="github-sign.png" class="linkedin-icon">
+            </a>
+
+            <a href="mailto:pjang2003@gmail.com" target="_blank">
+                <img src="email.png" class="linkedin-icon">
+            </a>
+          </div>
+          <style>
+            .linkedin-icon {
+                display: inline-block;
+                margin-left: 10px;
+                margin-right: 10px;
+                max-width: 50px;
+            }
+          </style>
+          
+        </div>
+      </div>
+    </div>
+
+    <footer>  
+      Footer region
+    </footer>
+    
+    <!-- Load additional JS scripts here -->
+    <script type="text/javascript" src="script.js"></script>
+    
+  </body>
+</html>
