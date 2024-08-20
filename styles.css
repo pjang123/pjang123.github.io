@@ -64,35 +64,25 @@ body, html {
     }
 }
 
-@media (max-width: 768px) {
-    .clickable-box {
-        display: block; /* Ensure it is not hidden on mobile */
-    }
-}
-
-
-/* Styling for the clickable box */
-/* Styling for the clickable box */
 .clickable-box {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 200px; /* Set a fixed width if needed */
-    height: 100px; /* Set a fixed height if needed */
     transform: translate(-50%, -50%);
-    background: transparent; /* Ensure the background is transparent */
-    color: rgb(255, 255, 255); /* Text color */
-    padding: 10px 20px;; /* Remove any padding */
-    margin: 0; /* Remove any margin */
-    border: none; /* Remove any border */
+    width: 200px;
+    height: 100px;
+    background: rgba(255, 0, 0, 0.5); /* Red background for visibility */
+    color: rgb(255, 255, 255);
     text-align: center;
-    text-decoration: none; /* Remove underline from links */
     font-size: 18px;
     font-family: Arial, sans-serif;
-    box-shadow: none; /* Remove box shadow */
-    outline: none; /* Remove outline for focus (optional) */
-    z-index: 10; /* Ensure it is above other elements */
-    display: block;
+    z-index: 10;
+}
+
+@media (max-width: 768px) {
+    .clickable-box {
+        display: block;
+    }
 }
 
 /* Hover effect */
