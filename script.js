@@ -1,29 +1,63 @@
-// Wait for the document to load before running the script 
-(function ($) {
-  
-    // We use some Javascript and the URL #fragment to hide/show different parts of the page
-    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Linking_to_an_element_on_the_same_page
-    $(window).on('load hashchange', function(){
-      
-      // First hide all content regions, then show the content-region specified in the URL hash 
-      // (or if no hash URL is found, default to first menu item)
-      $('.content-region').hide();
-      
-      // Remove any active classes on the main-menu
-      $('.main-menu a').removeClass('active');
-      var region = location.hash.toString() || $('.main-menu a:first').attr('href');
-      
-      // Now show the region specified in the URL hash
-      $(region).show();
-      
-      // Highlight the menu link associated with this region by adding the .active CSS class
-      $('.main-menu a[href="'+ region +'"]').addClass('active'); 
-  
-      // Alternate method: Use AJAX to load the contents of an external file into a div based on URL fragment
-      // This will extract the region name from URL hash, and then load [region].html into the main #content div
-      // var region = location.hash.toString() || '#first';
-      // $('#content').load(region.slice(1) + '.html')
-      
-    });
+const asciiCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+const container = document.querySelector('.ascii-container');
+const columnWidth = 40; // Width of each column (in pixels)
+const characterHeight = 20; // Height of each character (in pixels)
+
+// Function to calculate the number of columns and rows
+function calculateLayout() {
+    // Calculate the number of columns based on viewport width
+    const numberOfColumns = Math.ceil(window.innerWidth / columnWidth);
+
+    // Calculate the number of rows based on viewport height
+    const numberOfRows = Math.ceil(window.innerHeight / characterHeight);
+
+    return { numberOfColumns, numberOfRows };
+}
+
+// Function to get a random character from the ASCII characters
+function getRandomChar() {
+    return asciiCharacters[Math.floor(Math.random() * asciiCharacters.length)];
+}
+
+// Function to create a column of ASCII characters
+function createAsciiColumn(numberOfRows) {
+    const column = document.createElement('div');
+    column.className = 'ascii-column';
     
-  })(jQuery);
+    for (let i = 0; i < numberOfRows; i++) {
+        const span = document.createElement('span');
+        span.textContent = getRandomChar();
+        span.style.top = `${i * characterHeight}px`; // Position characters in rows
+
+        // Set random delay for each character’s animation to make it more natural
+        const delay = Math.random() * 5; // Stagger the start time randomly
+        span.style.animationDelay = `${delay}s`;
+
+        column.appendChild(span);
+    }
+
+    return column;
+}
+
+// Function to generate the ASCII grid
+function generateAsciiGrid() {
+    // Clear existing columns
+    container.innerHTML = '';
+
+    const { numberOfColumns, numberOfRows } = calculateLayout();
+
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < numberOfColumns; i++) {
+        const column = createAsciiColumn(numberOfRows);
+        fragment.appendChild(column);
+    }
+
+    container.appendChild(fragment);
+}
+
+// Generate the ASCII grid on page load
+generateAsciiGrid();
+
+// Regenerate the grid when the window is resized
+window.addEventListener('resize', generateAsciiGrid);
