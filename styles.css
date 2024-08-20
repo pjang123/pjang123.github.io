@@ -16,6 +16,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: visible; /* Ensure the container allows overflow */
 }
 
 .ascii-column {
@@ -26,7 +27,6 @@ body, html {
     position: relative;
     width: 40px; /* Adjust column width */
     height: 100vh; /* Ensure column spans the full viewport height */
-    overflow: visible; /* Ensure the container allows overflow */
 }
 
 .ascii-column span {
