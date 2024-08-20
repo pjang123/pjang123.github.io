@@ -77,11 +77,13 @@ body, html {
     font-size: 18px;
     font-family: Arial, sans-serif;
     z-index: 10;
+    visibility: visible;
 }
 
 @media (max-width: 768px) {
     .clickable-box {
         display: block;
+        visibility: visible;
     }
 }
 
