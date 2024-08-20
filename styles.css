@@ -83,6 +83,18 @@ body, html {
 @media (max-width: 768px) {
     .clickable-box {
         display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px;
+        height: 100px;
+        background: rgba(255, 0, 0, 0.5); /* Red background for visibility */
+        color: rgb(255, 255, 255);
+        text-align: center;
+        font-size: 18px;
+        font-family: Arial, sans-serif;
+        z-index: 10;
         visibility: visible;
     }
 }
