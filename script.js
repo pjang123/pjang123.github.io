@@ -5,8 +5,12 @@ const characterHeight = 20; // Height of each character (in pixels)
 
 // Function to calculate the number of columns and rows
 function calculateLayout() {
+    // Calculate the number of columns based on viewport width
     const numberOfColumns = Math.ceil(window.innerWidth / columnWidth);
+
+    // Calculate the number of rows based on viewport height
     const numberOfRows = Math.ceil(window.innerHeight / characterHeight);
+
     return { numberOfColumns, numberOfRows };
 }
 
@@ -23,8 +27,10 @@ function createAsciiColumn(numberOfRows) {
     for (let i = 0; i < numberOfRows; i++) {
         const span = document.createElement('span');
         span.textContent = getRandomChar();
-        span.style.top = `${i * characterHeight}px`;
-        const delay = Math.random() * 5; // Random delay for animation
+        span.style.top = `${i * characterHeight}px`; // Position characters in rows
+
+        // Set random delay for each character’s animation to make it more natural
+        const delay = Math.random() * 5; // Stagger the start time randomly
         span.style.animationDelay = `${delay}s`;
 
         column.appendChild(span);
@@ -35,8 +41,11 @@ function createAsciiColumn(numberOfRows) {
 
 // Function to generate the ASCII grid
 function generateAsciiGrid() {
+    // Clear existing columns
     container.innerHTML = '';
+
     const { numberOfColumns, numberOfRows } = calculateLayout();
+
     const fragment = document.createDocumentFragment();
 
     for (let i = 0; i < numberOfColumns; i++) {
@@ -47,6 +56,8 @@ function generateAsciiGrid() {
     container.appendChild(fragment);
 }
 
-// Generate the ASCII grid on page load and resize
+// Generate the ASCII grid on page load
 generateAsciiGrid();
+
+// Regenerate the grid when the window is resized
 window.addEventListener('resize', generateAsciiGrid);
