@@ -65,22 +65,26 @@ body, html {
 
 
 /* Styling for the clickable box */
+/* Styling for the clickable box */
 .clickable-box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: transparent; /* Set the background to transparent */
-    color: rgb(255, 255, 255);
-    padding: 0;
-    border: none; /* Remove the border */
+    background: transparent; /* Ensure the background is transparent */
+    color: rgb(255, 255, 255); /* Text color */
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margin */
+    border: none; /* Remove any border */
     text-align: center;
-    text-decoration: none;
+    text-decoration: none; /* Remove underline from links */
     font-size: 18px;
     font-family: Arial, sans-serif;
-    box-shadow: none; /* Remove the box shadow */
+    box-shadow: none; /* Remove box shadow */
+    outline: none; /* Remove outline for focus (optional) */
 }
 
+/* Hover effect */
 .clickable-box:hover {
     background: transparent; /* Ensure background remains transparent on hover */
 }
